@@ -1,18 +1,55 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Headcount from "./components/Headcount";
 import "./App.css";
 
 class App extends Component {
   render() {
+    state = {
+      user: {},
+      org: {},
+      structure: {}
+    };
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Basecount</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload?
-        </p>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={App} />
+            <Route
+              exact
+              path="/headcount"
+              render={() => (
+                <Headcount user={this.state.user} org={this.state.org} />
+              )}
+            />
+            <Route
+              exact
+              path="/admin/sites"
+              render={() => (
+                <Sites user={this.state.user} org={this.state.org} />
+              )}
+            />
+            <Route
+              exact
+              path="/admin/users"
+              render={() => (
+                <Sites
+                  user={this.state.user}
+                  org={this.state.org}
+                  users={this.state.users}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/account"
+              render={() => <Account user={this.state.user} />}
+            />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
