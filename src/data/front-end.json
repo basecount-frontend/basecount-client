@@ -1,91 +1,88 @@
 {
-    "loggedIn": false,
-    "loggedInUser": {
-        "sites": [
-        {
-            "siteId": 1,
-            "sitePermissionLevel": 0
-        }],
-        "sitesWithPermission" : [],
-        "userId": 0,
-        "userName": "Jackie",
-        "emailAddress": ""
-    },
-    "orgs": {
-        "orgName": "Org Name",
-        "orgId": 1,
-        "sites" : [{
-            "siteName" : "Site Name",
-            "siteId": 1,
-            "capacity": "",
-            "siteStatus": "active",
-            "dateCreated": "",
-            "siteAddress": "",
-            "postalCode": "",
-            "sitePhone": "",
-            "populationsServed": [],
-            "siteServices": [],
-            "siteHistory": [
-                // default: pull in 3 entries; for more pull in 10
-                {
-                    "occupancy": "",
-                    "capacity": "",
-                    "time": "",
-                    "name": ""
-                }
-            ]
-        }],
-        "orgUsers": [
-            {
-                "userName": "",
-                "userId": "",
-                "userPermissions": [
-                    {
-                        "siteId": "",
-                        "permissionLevel": ""
-                    }
-                ]
-            }
-        ],
-        "orgInfo": {
-        }
-    },
-    "users": [
-        {
-            "first_name": "Andrew",
-            "last_name": "Carreiro",
-            "email": "andrewcarreiro@gmail.com"
-        }
+  "loggedIn": false,
+  "appUser": {
+    "sites": [
+      {
+        "siteId": 1,
+        "sitePermissionLevel": 0
+      }
     ],
-    "permission_levels": {
-        "site_employee": {
-            "pretty_name": "Site Employee",
-            "code": 0
-        },
-        "site_manager": {
-            "pretty_name": "Site Manager",
-            "code": 1
-        },
-        "org_employee": {
-            "pretty_name": "Org Employee",
-            "code": 2
-        },
-        "org_manager": {
-            "pretty_name": "Org Manager",
-            "code": 3
-        },
-        "global_admin": {
-            "pretty_name": "Global Admin",
-            "code": 4
-        },
-        "global_dataviewer": {
-            "pretty_name": "Global Dataviewer",
-            "code": 5
-        }
+    "sitesWithPermission": [],
+    "appUserId": 123,
+    "appUserName": "Jackie",
+    "appUserAddress": "jackie@internet.com"
+  },
+  "org": {
+    "orgName": "Org Name",
+    "orgId": 1,
+    "orgInfo": {
+      "orgName": "Dixon Hall",
+      "orgId": 1
     },
-    "sitePopulations": [ "Men", "Women", "Children" ],
-    "siteServices": [ "Meals",
-        "Snacks",
-        "Showers"
+    "sites": [
+      {
+        "siteName": "Site Name",
+        "siteId": 1,
+        "capacity": "",
+        "siteStatus": "active",
+        "dateCreated": "",
+        "siteAddress": "",
+        "postalCode": "",
+        "sitePhone": "",
+        "populationsServed": [],
+        "siteServices": [],
+        "siteHistory": [
+          {
+            "occupancy": "",
+            "capacity": "",
+            "time": "",
+            "name": ""
+          }
+        ]
+      }
+    ],
+    "orgUsers": [
+      {
+        "first_name": "Andrew",
+        "last_name": "Carreiro",
+        "email": "andrewcarreiro@gmail.com",
+        "userPermissions": [
+          {
+            "siteId": "",
+            "permissionLevel": ""
+          }
+        ]
+      }
     ]
+  },
+  "structure": {
+    "permission_levels": {
+      "site_employee": {
+        "pretty_name": "Site Employee",
+        "code": 0
+      },
+      "site_manager": {
+        "pretty_name": "Site Manager",
+        "code": 1
+      },
+      "org_employee": {
+        "pretty_name": "Org Employee",
+        "code": 2
+      },
+      "org_manager": {
+        "pretty_name": "Org Manager",
+        "code": 3
+      },
+      "global_admin": {
+        "pretty_name": "Global Admin",
+        "code": 4
+      },
+      "global_dataviewer": {
+        "pretty_name": "Global Dataviewer",
+        "code": 5
+      }
+    },
+    "sitePopulations": ["Men", "Women", "Children", "Family"],
+    "siteServices": ["Meals", "Snacks", "Showers"]
+  }
 }
