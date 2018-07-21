@@ -13,32 +13,46 @@
     "appUserAddress": "jackie@internet.com"
   },
   "org": {
-    "orgName": "Org Name",
+    "orgName": "Dixon Hall Neighbourhood Services",
     "orgId": 1,
     "orgInfo": {
-      "orgName": "Dixon Hall",
+      "orgName": "Dixon Hall Neighbourhood Services",
       "orgId": 1
     },
     "sites": [
       {
-        "siteName": "Site Name",
-        "siteId": 1,
-        "capacity": "",
-        "siteStatus": "active",
-        "dateCreated": "",
-        "siteAddress": "",
-        "postalCode": "",
-        "sitePhone": "",
-        "populationsServed": [],
-        "siteServices": [],
-        "siteHistory": [
-          {
-            "occupancy": "",
-            "capacity": "",
-            "time": "",
-            "name": ""
-          }
-        ]
+        "orgName": "Dixon Hall Neighbourhood Services",
+        "programName": "The Schoolhouse",
+        "phone": "416-960-9240",
+        "address": "349 George St Toronto ON M5A 2N2",
+        "web": "www.dixonhall.org",
+        "email": "Harvey.stein@dixonhall.org",
+        "hours": "Mon-Sun 4 pm-8 am, Sat-Sun 24 hours",
+        "eligibility": ["men"],
+        "eligibilityNotes": "",
+        "services": "",
+        "latitude": 43.660144,
+        "longitude": -79.374306,
+        "fid": "MET1171",
+        "bcSiteID": 1,
+        "capacity": 40
+      },
+      {
+        "orgName": "Dixon Hall Neighbourhood Services",
+        "programName": "Heyworth House",
+        "phone": "416-691-0012",
+        "address": "2714 Danforth Ave Toronto ON M4C 1L7",
+        "web": "www.dixonhall.org",
+        "email": "haydar.shouly@dixonhall.org",
+        "hours": "Mon-Sun 24 hours",
+        "eligibility": ["mixed adult"],
+        "eligibilityNotes": "24+",
+        "services": "",
+        "latitude": 43.689116,
+        "longitude": -79.298255,
+        "fid": "MET5172",
+        "bcSiteID": 2,
+        "capacity": 83
       }
     ],
     "orgUsers": [
@@ -82,7 +96,7 @@
         "code": 5
       }
     },
-    "sitePopulations": ["Men", "Women", "Children", "Family"],
+    "sitePopulations": ["Men", "Women", "Mixed Adult", "Children", "Family"],
     "siteServices": ["Meals", "Snacks", "Showers"]
   }
 }
