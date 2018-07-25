@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import axios from "axios";
+import Header from "./components/Header";
 import Headcount from "./components/Headcount";
 import Sites from "./components/Sites";
 import Account from "./components/Account";
@@ -27,9 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Basecount</h1>
-        </header>
+        <Header orgName={this.state.org.orgName} />
         <BrowserRouter>
           <Switch>
             <Route
