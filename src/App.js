@@ -1,26 +1,39 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+// import axios from "axios";
+import Header from "./components/Header";
 import Headcount from "./components/Headcount";
+import Sites from "./components/Sites";
+import Account from "./components/Account";
 import "./App.css";
+import data from "./data/front-end.json";
 
 class App extends Component {
+  state = {
+    appUser: {},
+    org: {},
+    structure: {}
+  };
+
+  componentWillMount() {
+    console.log(data);
+    const { appUser, org, structure } = data;
+    this.setState({
+      appUser,
+      org,
+      structure
+    });
+  }
+
   render() {
-    state = {
-      user: {},
-      org: {},
-      structure: {}
-    };
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Basecount</h1>
-        </header>
+        <Header orgName={this.state.org.orgName} />
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={App} />
             <Route
               exact
-              path="/headcount"
+              path="/"
               render={() => (
                 <Headcount user={this.state.user} org={this.state.org} />
               )}
