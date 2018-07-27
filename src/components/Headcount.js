@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import { orange } from "../utilities/colors";
+import React, { Component } from "react";
+// import { orange } from "../utilities/colors";
 import { Section } from "../utilities";
 
 export default class Headcount extends Component {

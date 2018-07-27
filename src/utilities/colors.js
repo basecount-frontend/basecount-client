@@ -1,3 +1,4 @@
+export const background = "#2B2B2B";
 export const blueDark = "#1C41B2";
 export const blue = "#4170FF";
 export const blueLight = "#43B0FF";
@@ -6,6 +7,7 @@ export const silver = "#C4C4C4";
 export const white = "#ffffff";
 
 export default {
+  background,
   blueDark,
   blue,
   blueLight,
