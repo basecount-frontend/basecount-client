@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { orange } from "../utilities/colors";
-import { Section } from "../utilities";
+import { Section, ButtonPrimary, ButtonSecondary } from "../utilities";
 
 export default class Headcount extends Component {
   render() {
@@ -15,6 +15,9 @@ export default class Headcount extends Component {
               </option>
             ))}
           </select>
+          <ButtonPrimary>Primary</ButtonPrimary>
+          <ButtonPrimary disabled>Disabled</ButtonPrimary>
+         <ButtonSecondary>Secondary</ButtonSecondary>
         </div>
       </HeadcountSection>
     );
