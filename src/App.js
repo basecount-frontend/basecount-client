@@ -1,65 +1,96 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import axios from "axios";
+import Login from "./components/Login";
 import Header from "./components/Header";
 import Headcount from "./components/Headcount";
 import Sites from "./components/Sites";
 import Account from "./components/Account";
 import "./App.css";
-import data from "./data/front-end.json";
+import data from "./data/front-end";
 
 class App extends Component {
   state = {
-    appUser: {},
-    org: {},
-    structure: {}
+    appOrg: null,
+    appUse: null,
+    orgs: {},
+    sites: {},
+    users: {},
+    loggedIn: false,
+    siteServices: [],
+    sitePopulations: [],
+    permission_levels: []
   };
 
   componentWillMount() {
     console.log(data);
-    const { appUser, org, structure } = data;
-    this.setState({
+    const {
+      appOrg,
       appUser,
-      org,
-      structure
+      siteServices,
+      sitePopulations,
+      permission_levels
+    } = data;
+    const { orgs, sites, users, loggedIn } = data.dbData;
+    this.setState({
+      appOrg,
+      appUser,
+      orgs,
+      sites,
+      users,
+      loggedIn,
+      siteServices: Object.values(siteServices),
+      sitePopulations: Object.values(sitePopulations),
+      permission_levels
     });
   }
 
   render() {
+    const { appOrg, appUser } = this.state;
     return (
       <div className="App">
-        <Header orgName={this.state.org.orgName} />
+        <Header orgName={this.state.orgs[appOrg].name} />
         <BrowserRouter>
           <Switch>
+            <Route exact path="/" render={() => <Login />} />
             <Route
               exact
-              path="/"
+              path="/app/headcount"
               render={() => (
-                <Headcount user={this.state.user} org={this.state.org} />
+                <Headcount
+                  user={this.state.users[appUser]}
+                  org={this.state.orgs[appOrg]}
+                  sites={this.state.sites}
+                />
               )}
             />
             <Route
               exact
-              path="/admin/sites"
-              render={() => (
-                <Sites user={this.state.user} org={this.state.org} />
-              )}
-            />
-            <Route
-              exact
-              path="/admin/users"
+              path="/app/admin/sites"
               render={() => (
                 <Sites
-                  user={this.state.user}
-                  org={this.state.org}
+                  user={this.state.users[appUser]}
+                  org={this.state.orgs[appOrg]}
+                  users={this.state.users}
+                  sites={this.state.sites}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/app/admin/users"
+              render={() => (
+                <Sites
+                  user={this.state.users[appUser]}
+                  org={this.state.orgs[appOrg]}
                   users={this.state.users}
                 />
               )}
             />
             <Route
               exact
-              path="/account"
-              render={() => <Account user={this.state.user} />}
+              path="/app/account"
+              render={() => <Account user={this.state.users[appUser]} />}
             />
           </Switch>
         </BrowserRouter>
