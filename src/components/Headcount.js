@@ -4,11 +4,12 @@ import { Section, ButtonPrimary, ButtonSecondary } from "../utilities";
 
 export default class Headcount extends Component {
   render() {
+    const sites = Object.values(this.props.sites);
     return (
       <HeadcountSection>
         <div className="section__wrapper">
           <select className="headcount__options">
-            {this.props.org.sites.map(site => (
+            {sites.map(site => (
               <option value={site.programName} key={site.fid}>
                 {" "}
                 {site.programName}
@@ -17,7 +18,7 @@ export default class Headcount extends Component {
           </select>
           <ButtonPrimary>Primary</ButtonPrimary>
           <ButtonPrimary disabled>Disabled</ButtonPrimary>
-         <ButtonSecondary>Secondary</ButtonSecondary>
+          <ButtonSecondary>Secondary</ButtonSecondary>
         </div>
       </HeadcountSection>
     );
