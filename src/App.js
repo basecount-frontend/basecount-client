@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Header from "./components/Header";
 import Headcount from "./components/Headcount";
 import Sites from "./components/Sites";
+import Users from "./components/Users";
 import Account from "./components/Account";
 import "./App.css";
 import data from "./data/front-end";
@@ -80,10 +81,11 @@ class App extends Component {
               exact
               path="/app/admin/users"
               render={() => (
-                <Sites
+                <Users
                   user={this.state.users[appUser]}
                   org={this.state.orgs[appOrg]}
                   users={this.state.users}
+                  sites={this.state.sites}
                 />
               )}
             />
