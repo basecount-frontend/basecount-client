@@ -16,6 +16,7 @@ export default class Header extends Component {
 const MainHeader = styled.header`
   display: flex;
   flex-flow: row nowrap;
+  background-color: white;
   justify-content: space-between;
   padding: 20px;
   .header__logo {
