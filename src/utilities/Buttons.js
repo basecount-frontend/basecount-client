@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { blue, blueDark, orange, silver, white } from "./colors";
 
 const Button = styled.button`
-  border-radius: 30px;
+  border-radius: 2px;
   border: 1px solid transparent;
   color: ${white};
   display: block;
   font-weight: bold;
-  min-width: 212px;
+  max-width: 90%;
   padding: 1rem;
 
   &:hover {
@@ -22,7 +22,7 @@ const Button = styled.button`
   }
 `;
 
-export const ButtonPrimary = Button.extend `
+export const ButtonPrimary = Button.extend`
   background-color: ${orange};
 
   &:hover {
@@ -30,7 +30,7 @@ export const ButtonPrimary = Button.extend `
     color: ${orange};
   }
 `;
-export const ButtonSecondary = Button.extend `
+export const ButtonSecondary = Button.extend`
   background-color: ${blue};
 
   &:hover {
