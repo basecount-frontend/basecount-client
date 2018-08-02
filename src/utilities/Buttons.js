@@ -7,7 +7,7 @@ const Button = styled.button`
   color: ${white};
   display: block;
   font-weight: bold;
-  min-width: 300px;
+  max-width: 90%;
   padding: 1rem;
 
   &:hover {
