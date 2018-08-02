@@ -6,7 +6,7 @@ export default class Header extends Component {
   render() {
     return (
       <MainHeader>
-        <div className="header__logo">{this.props.orgName}</div>
+        <div className="header__logo">basecount</div>
         <div className="header__nav">DROP</div>
       </MainHeader>
     );
@@ -16,6 +16,7 @@ export default class Header extends Component {
 const MainHeader = styled.header`
   display: flex;
   flex-flow: row nowrap;
+  background-color: white;
   justify-content: space-between;
   padding: 20px;
   .header__logo {
