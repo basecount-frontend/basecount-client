@@ -6,6 +6,14 @@ export const UserItemContainer = styled.div`
   margin: 0 auto;
 `;
 
+export const UserFilterRow = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+`;
+
 export const UserItem = styled.div`
   width: 90%;
   background-color: #1c41b2;

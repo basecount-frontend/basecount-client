@@ -1,25 +1,16 @@
 import React, { Component } from "react";
+import { UserFilterRow } from "../../utilities/Users";
 
 class UserFilter extends Component {
   render() {
     return (
-      <div className="users__filter" style={{ margin: "0 auto", width: "90%" }}>
+      <UserFilterRow>
         <input
           type="search"
-          style={{ display: "inline-block", height: "32px", width: "80%" }}
+          style={{ height: "32px", width: "100%", paddingLeft: "16px" }}
         />
-        <div
-          style={{
-            display: "inline-block",
-            float: "right",
-            color: "white",
-            width: "18%",
-            textAlign: "center"
-          }}
-        >
-          ico
-        </div>
-      </div>
+        <div style={{ color: "white" }}>ico</div>
+      </UserFilterRow>
     );
   }
 }
