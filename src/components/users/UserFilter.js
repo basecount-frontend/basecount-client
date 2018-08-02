@@ -7,6 +7,7 @@ class UserFilter extends Component {
       <UserFilterRow>
         <input
           type="search"
+          onChange={e => this.props.updateSearchFilter(e.target.value)}
           style={{ height: "32px", width: "100%", paddingLeft: "16px" }}
         />
         <div style={{ color: "white" }}>ico</div>
