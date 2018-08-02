@@ -7,11 +7,11 @@ const UserItemList = props => {
     <div>
       {props.users.map(user => (
         <UserItem>
-          <Link to="/app/admin/users/user/:id">
+          <Link to={"/app/admin/users/user/" + user.id}>
             <div style={{ margin: "8px 16px" }}>
               <div style={{ display: "inline-block" }}>
                 <UserItemTitle>{user.firstName} </UserItemTitle>
-                <UserItemRole>User Role </UserItemRole>
+                <UserItemRole>{user.role} </UserItemRole>
               </div>
               <div style={{ display: "inline-block", float: "right" }}>
                 <span style={{ color: "white" }}>></span>
