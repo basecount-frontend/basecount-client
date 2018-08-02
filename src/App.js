@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import axios from "axios";
 import Login from "./components/Login";
 import Header from "./components/Header";
+import Subheader from "./components/Subheader";
 import Headcount from "./components/Headcount";
 import Sites from "./components/Sites";
 import Users from "./components/Users";
@@ -50,7 +51,8 @@ class App extends Component {
     const { appOrg, appUser } = this.state;
     return (
       <div className="App">
-        <Header orgName={this.state.orgs[appOrg].name} />
+        <Header />
+        <Subheader orgName={this.state.orgs[appOrg].name} />
         <BrowserRouter>
           <Switch>
             <Route exact path="/" render={() => <Login />} />

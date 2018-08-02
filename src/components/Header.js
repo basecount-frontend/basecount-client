@@ -6,7 +6,7 @@ export default class Header extends Component {
   render() {
     return (
       <MainHeader>
-        <div className="header__logo">{this.props.orgName}</div>
+        <div className="header__logo">basecount</div>
         <div className="header__nav">DROP</div>
       </MainHeader>
     );
