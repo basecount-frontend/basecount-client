@@ -1,27 +1,24 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Section, ButtonPrimary, ButtonSecondary, Icon } from "../utilities";
+import { UserItemContainer } from "../utilities/Users";
+import { PageTitle } from "../utilities/Typography";
+import UserFilter from "./users/UserFilter";
+import UserItemList from "./users/UserItemList";
 
 export default class Users extends Component {
   render() {
+    const users = Object.values(this.props.users);
+
     return (
       <UserSection>
-        <div className="section-wrapper">
-          <div className="users__filter">
-            <input type="search" />
-            <Icon name="filter" />
-          </div>
-
-          <div className="users__item">
-            <Link to="/app/admin/users/user/:id">
-              <div className="users__item__orgLink">
-                Dummy Org <span>></span>{" "}
-              </div>
-              <div className="users__item">Dummy Manager</div>
-            </Link>
-            <ButtonPrimary>Add User</ButtonPrimary>
-          </div>
-        </div>
+        <UserItemContainer>
+          <PageTitle>User</PageTitle>
+          <UserFilter />
+          <UserItemList users={users} />
+          <ButtonPrimary style={{ margin: "0 auto", width: "90%" }}>
+            Add User
+          </ButtonPrimary>
+        </UserItemContainer>
       </UserSection>
     );
   }
