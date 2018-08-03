@@ -5,8 +5,18 @@ import { background, blue, blueDark, orange, silver, white } from "../utilities/
 
 
 export default class Headcount extends Component {
+  constructor() {
+    super();
+    this.state = {
+      currentHeadcount: 75,
+      totalHeadcount: 100
+    }
+  }
+  
   render() {
     const sites = Object.values(this.props.sites);
+    const percentOccupied = (this.state.currentHeadcount / this.state.totalHeadcount) * 100;
+
     return <HeadcountSection>
         <div className="section__wrapper">
           <select className="headcount__options">
@@ -21,10 +31,14 @@ export default class Headcount extends Component {
             <h3 className="headcount__current__heading headcount__heading">
               Current Headcount
             </h3>
-            <div className="headcount__meter">[headcount meter]</div>
+            <div className="headcount__meter">
+            <div className="headcount__meter__bar" style={{ width: `${percentOccupied}%` }}>
+              <span className="headcount__meter__bar__status">{this.state.currentHeadcount}/{this.state.totalHeadcount}</span>
+              </div>
+            </div>
             <p className="headcount__count">
-              <span className="headcount__count--current">75</span>/<span className="headcount__count--total">
-                100
+              <span className="headcount__count--current">{this.state.currentHeadcount}</span>/<span className="headcount__count--total">
+                {this.state.totalHeadcount}
               </span> spaces
             </p>
             <p className="headcount__date">July 30, 2018 3:30PM</p>
@@ -53,7 +67,7 @@ export default class Headcount extends Component {
               </div>
               <div className="headcount__general__control">
                 <label className="visually-hidden">Total Headcount</label>
-                <input type="text" className="headcount__change__input" id="headcount__change--total" value="100" />
+                <input type="text" className="headcount__change__input" id="headcount__change--total" value={this.state.totalHeadcount} />
               </div>
             </div>
             <ButtonPrimary disabled className="headcount__change__submit">
@@ -62,24 +76,45 @@ export default class Headcount extends Component {
           </fieldset>
           <div className="headcount__history">
             <h3 className="headcount__history__heading">Recent History</h3>
-            <div className="headcount__history__record">
-              <div className="headcount__history__meter">
-                [headcount meter]
+          <div className="headcount__history__record">
+            <div className="headcount__history__meter yellow">
+              <div className="headcount__history__meter__bar" style={{ width: `${percentOccupied}%` }}>
+                <span className="headcount__history__meter__bar__status">{this.state.currentHeadcount}/{this.state.totalHeadcount}</span>
               </div>
-              <p className="headcount__history__record__date">
-                <span className="record__date">July 30, 2018</span>
-                <span className="record__time">10:00AM</span>
-              </p>
-            </div>
-            <div className="headcount__history__record">
-              <div className="headcount__history__meter">
-                [headcount meter]
               </div>
-              <p className="headcount__history__record__date">
-                <span className="record__date">July 30, 2018</span>
-                <span className="record__time">10:00AM</span>
+            <p className="headcount__history__record__date">
+              July 30, 2018
               </p>
+            <p className="headcount__history__record__time">
+              10:00AM
+              </p>
+          </div>
+          <div className="headcount__history__record">
+            <div className="headcount__history__meter red">
+              <div className="headcount__history__meter__bar" style={{ width: `${percentOccupied}%` }}>
+                <span className="headcount__history__meter__bar__status">{this.state.currentHeadcount}/{this.state.totalHeadcount}</span>
+              </div>
             </div>
+            <p className="headcount__history__record__date">
+              July 30, 2018
+              </p>
+            <p className="headcount__history__record__time">
+              10:00AM
+              </p>
+          </div>
+          <div className="headcount__history__record">
+            <div className="headcount__history__meter green">
+              <div className="headcount__history__meter__bar" style={{ width: `${percentOccupied}%` }}>
+                <span className="headcount__history__meter__bar__status">{this.state.currentHeadcount}/{this.state.totalHeadcount}</span>
+              </div>
+            </div>
+            <p className="headcount__history__record__date">
+              July 30, 2018
+              </p>
+            <p className="headcount__history__record__time">
+              10:00AM
+              </p>
+          </div>
           </div>
           <button className="headcount__history__view-more">View more</button>
         </div>
@@ -144,26 +179,23 @@ const HeadcountSection = Section.extend`
   .headcount__history__heading {
     font-size: 2.4rem;
     margin-bottom: 0;
-    padding: .5em 0;
+    padding: 0.5em 0;
   }
   .headcount__history__record {
     align-items: center;
     background: ${white};
     border-bottom: 1px solid ${silver};
     color: ${background};
-    display: flex;
+    display: grid;
     font-size: 1.4rem;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
-    padding: 1em;
+    padding: 0.4em 1em;
     text-transform: uppercase;
   }
   .headcount__history__record:last-of-type {
     border-bottom: none;
     border-radius: 0 0 8px 8px;
-  }
-  .headcount__history__record__date {
-    display: contents;
-    justify-content: space-between;
   }
   .headcount__history__view-more {
     background: transparent;
@@ -173,6 +205,62 @@ const HeadcountSection = Section.extend`
   }
   .headcount__increment {
     top: -35px;
+  }
+  .headcount__history__meter,
+  .headcount__meter {
+    background-color: white;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;
+    display: flex;
+    position: relative;
+  }
+  .headcount__meter {
+    border-color: ${blue};
+  }
+  .headcount__history__record__time {
+    justify-self: end;
+  }
+  .headcount__history__meter__bar,
+  .headcount__meter__bar {
+    align-items: center;
+    color: ${background};
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .headcount__meter__bar {
+    background: ${blue};
+    padding: 1.5em;
+  }
+  .headcount__history__meter__bar {
+    font-size: 1.6rem;
+    padding: 1em;
+  }
+  .headcount__history__meter.green {
+    border-color: #27ae60;
+  }
+  .headcount__history__meter.red {
+    border-color: red;
+  }
+  .headcount__history__meter.yellow {
+    border-color: #f1ad00;
+  }
+  .headcount__history__meter.green .headcount__history__meter__bar {
+    background-color: #27ae60;
+  }
+  .headcount__history__meter.red .headcount__history__meter__bar {
+    background-color: red;
+  }
+  .headcount__history__meter.yellow .headcount__history__meter__bar {
+    background-color: #f1ad00;
+  }
+  .headcount__history__meter__bar__status,
+  .headcount__meter__bar__status {
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
   }
   .headcount__update__details {
     font-size: 1.4rem;
