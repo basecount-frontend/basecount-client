@@ -20,6 +20,8 @@ const Button = styled.button`
     border: inherit;
     color: ${blueDark};
   }
+
+  }
 `;
 
 export const ButtonPrimary = Button.extend`
