@@ -11,16 +11,16 @@ export default class Menu extends Component {
       <MenuDrop>
         <ul>
           <li>
-            <a href="#">Headcount</a>
+            <Link to="/app/headcount">Headcount</Link>
           </li>
           <li>
-            <a href="#">User</a>
+            <Link to="/app/admin/users">User</Link>
           </li>
           <li>
-            <a href="#">Sites</a>
+            <Link to="/app/admin/sites">Sites</Link>
           </li>
           <li>
-            <a href="#">Your settings</a>
+            <Link to="/app/account">Your settings</Link>
           </li>
           <li>
             <a href="#" onClick={this.logoutClick}>
