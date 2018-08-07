@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { UserItem, UserItemRole, UserItemTitle } from "../../utilities/Users";
+import {
+  UserItemStyle,
+  UserItemRole,
+  UserItemTitle
+} from "../../utilities/Users";
 
-const UserItemList = ({ user }) => {
+const UserItem = ({ user }) => {
   return (
-    <UserItem>
+    <UserItemStyle>
       <Link to={"/app/admin/users/user/" + user.id}>
         <div style={{ margin: "8px 16px" }}>
           <div style={{ display: "inline-block" }}>
@@ -16,8 +20,8 @@ const UserItemList = ({ user }) => {
           </div>
         </div>
       </Link>
-    </UserItem>
+    </UserItemStyle>
   );
 };
 
-export default UserItemList;
+export default UserItem;

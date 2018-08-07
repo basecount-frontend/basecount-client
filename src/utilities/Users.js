@@ -14,7 +14,7 @@ export const UserFilterRow = styled.div`
   margin: 0 auto;
 `;
 
-export const UserItem = styled.div`
+export const UserItemStyle = styled.div`
   width: 90%;
   background-color: #1c41b2;
   height: 64px;
