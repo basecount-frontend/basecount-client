@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { orange } from "../utilities/colors";
 import { Section, ButtonPrimary, ButtonSecondary } from "../utilities";
 import { background, blue, blueDark, orange, silver, white } from "../utilities/colors";
+import HeadcountHistoryRecord from "../components/HeadcountHistoryRecord";
 
 
 export default class Headcount extends Component {
@@ -96,45 +97,24 @@ export default class Headcount extends Component {
           </fieldset>
           <div className="headcount__history">
             <h3 className="headcount__history__heading">Recent History</h3>
-          <div className="headcount__history__record">
-            <div className="headcount__history__meter">
-              <div className="headcount__history__meter__bar" style={{ width: `${percentOccupied}%` }}>
-                <span className="headcount__history__meter__bar__status">{this.state.currentHeadcount}/{this.state.totalHeadcount}</span>
-              </div>
-              </div>
-            <p className="headcount__history__record__date">
-              July 30, 2018
-              </p>
-            <p className="headcount__history__record__time">
-              10:00AM
-              </p>
-          </div>
-          <div className="headcount__history__record">
-            <div className="headcount__history__meter">
-              <div className="headcount__history__meter__bar" style={{ width: `${percentOccupied}%` }}>
-                <span className="headcount__history__meter__bar__status">{this.state.currentHeadcount}/{this.state.totalHeadcount}</span>
-              </div>
-            </div>
-            <p className="headcount__history__record__date">
-              July 30, 2018
-              </p>
-            <p className="headcount__history__record__time">
-              10:00AM
-              </p>
-          </div>
-          <div className="headcount__history__record">
-            <div className="headcount__history__meter full">
-              <div className="headcount__history__meter__bar" style={{ width: `${percentOccupied}%` }}>
-                <span className="headcount__history__meter__bar__status">{this.state.currentHeadcount}/{this.state.totalHeadcount}</span>
-              </div>
-            </div>
-            <p className="headcount__history__record__date">
-              July 30, 2018
-              </p>
-            <p className="headcount__history__record__time">
-              10:00AM
-              </p>
-          </div>
+          <HeadcountHistoryRecord
+            totalHeadcount={this.state.totalHeadcount}
+            headcount="83"
+            recordDate="July 30, 2018"
+            recordTime="9:00PM"
+          />
+          <HeadcountHistoryRecord
+            totalHeadcount={this.state.totalHeadcount}
+            headcount="96"
+            recordDate="July 31, 2018"
+            recordTime="10:00PM"
+          />
+          <HeadcountHistoryRecord 
+            totalHeadcount = {this.state.totalHeadcount}
+            headcount="100"
+            recordDate="August 1, 2018"
+            recordTime="12:00PM"
+          />
           </div>
           <button className="headcount__history__view-more">View more</button>
         </div>
