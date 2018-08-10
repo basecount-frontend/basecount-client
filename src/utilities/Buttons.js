@@ -17,7 +17,7 @@ const Button = styled.button`
   &:disabled,
   &:disabled:hover {
     background-color: ${silver};
-    border: inherit;
+    border: 1px solid transparent;
     color: ${blueDark};
   }
 `;
