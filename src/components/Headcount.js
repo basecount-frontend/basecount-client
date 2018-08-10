@@ -60,15 +60,11 @@ export default class Headcount extends Component {
               Current Headcount
             </h3>
             <div className="headcount__meter">
-            <div className="headcount__meter__bar" style={{ width: `${percentOccupied}%` }}>
-              <span className="headcount__meter__bar__status">{this.state.currentHeadcount}/{this.state.totalHeadcount}</span>
+            <div className="headcount__meter__inner">
+              <div className="headcount__meter__occupancy__current">{percentOccupied}%</div>
+              <div className="headcount__meter__occupancy__percent-of-total">{this.state.currentHeadcount}/{this.state.totalHeadcount} occupied</div>
               </div>
             </div>
-            <p className="headcount__count">
-              <span className="headcount__count--current">{this.state.currentHeadcount}</span>/<span className="headcount__count--total">
-                {this.state.totalHeadcount}
-              </span> spaces
-            </p>
             <p className="headcount__date">Last updated: {this.state.updateDate} {this.state.updateTime}</p>
           </div>
           <fieldset className="headcount__general">
@@ -206,8 +202,29 @@ const HeadcountSection = Section.extend`
     color: ${blue};
     text-transform: lowercase;
   }
-  .headcount__history__meter,
   .headcount__meter {
+    align-items: center;
+    border: 2em solid white;
+    border-radius: 50%;
+    display: flex;
+    height: 250px;
+    justify-content: center;
+    margin: 0 auto;
+    width: 250px;
+  }
+  .headcount__meter__occupancy__current {
+    font-size: 2.8rem;
+    font-weight: bold;
+    padding-bottom: .8rem;
+  }
+  .headcount__meter__occupancy__percent-of-total {
+    color: ${silver};
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    padding: 0 1rem;
+    text-transform: uppercase;
+  }
+  .headcount__history__meter {
     background-color: white;
     border-radius: 8px;
     border-style: solid;
@@ -219,19 +236,13 @@ const HeadcountSection = Section.extend`
   .headcount__meter.full {
     border-color: ${red};
   }
-  .headcount__history__meter.full .headcount__history__meter__bar,
-  .headcount__meter.full .headcount__meter__bar {
+  .headcount__history__meter.full .headcount__history__meter__bar {
     background-color: ${red};
   }
-  .headcount__history__meter,
-  .headcount__meter {
+  .headcount__history__meter {
     border-color: ${blueLight};
   }
-  .headcount__history__record__time {
-    justify-self: end;
-  }
-  .headcount__history__meter__bar,
-  .headcount__meter__bar {
+  .headcount__history__meter__bar {
     align-items: center;
     color: ${background};
     display: flex;
@@ -244,18 +255,15 @@ const HeadcountSection = Section.extend`
     font-size: 1.6rem;
     padding: 1em;
   }
-  .headcount__meter__bar {
-    background: ${blueLight};
-    padding: 1.5em;
-  }
-  .headcount__history__meter__bar.full,
-  .headcount__meter__bar.full {
+  .headcount__history__meter__bar.full {
     background-color: ${red};
   }
-  .headcount__history__meter__bar__status,
-  .headcount__meter__bar__status {
+  .headcount__history__meter__bar__status {
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
+  }
+  .headcount__history__record__time {
+    justify-self: end;
   }
 `;
