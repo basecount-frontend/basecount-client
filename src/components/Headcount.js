@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { orange } from "../utilities/colors";
 import { Section, ButtonPrimary, ButtonSecondary } from "../utilities";
-import { background, blue, blueDark, orange, silver, white } from "../utilities/colors";
+import { background, blue, blueDark, orange, silver, white, blueLight, red } from "../utilities/colors";
 import HeadcountHistoryRecord from "../components/HeadcountHistoryRecord";
 
 
@@ -217,15 +217,15 @@ const HeadcountSection = Section.extend`
   }
   .headcount__history__meter.full,
   .headcount__meter.full {
-    border-color: red;
+    border-color: ${red};
   }
   .headcount__history__meter.full .headcount__history__meter__bar,
   .headcount__meter.full .headcount__meter__bar {
-    background-color: red;
+    background-color: ${red};
   }
   .headcount__history__meter,
   .headcount__meter {
-    border-color: ${blue};
+    border-color: ${blueLight};
   }
   .headcount__history__record__time {
     justify-self: end;
@@ -240,17 +240,17 @@ const HeadcountSection = Section.extend`
     overflow: hidden;
   }
   .headcount__history__meter__bar {
-    background-color: ${blue};
+    background-color: ${blueLight};
     font-size: 1.6rem;
     padding: 1em;
   }
   .headcount__meter__bar {
-    background: ${blue};
+    background: ${blueLight};
     padding: 1.5em;
   }
   .headcount__history__meter__bar.full,
   .headcount__meter__bar.full {
-    background-color: red;
+    background-color: ${red};
   }
   .headcount__history__meter__bar__status,
   .headcount__meter__bar__status {
