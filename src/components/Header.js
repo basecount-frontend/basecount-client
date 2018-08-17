@@ -1,13 +1,24 @@
-import React, { Component } from "react";
-import { blue, blueDark } from "./../utilities/colors";
+import React, { Component, Fragment } from "react";
+import { blue, blueDark } from "../utilities/colors";
+import { Toggle, Modal, Icon } from "../utilities";
 import styled from "styled-components";
+import Menu from "./Menu";
 
 export default class Header extends Component {
   render() {
     return (
       <MainHeader>
-        <div className="header__logo">basecount</div>
-        <div className="header__nav">DROP</div>
+        <Icon name="logo" style={{ height: "50px", width: "50px" }} />
+        <Toggle>
+          {({ on, toggle }) => (
+            <Fragment>
+              <button onClick={toggle}>DROP</button>
+              <Modal on={on} toggle={toggle}>
+                <Menu />
+              </Modal>
+            </Fragment>
+          )}
+        </Toggle>
       </MainHeader>
     );
   }
@@ -24,5 +35,9 @@ const MainHeader = styled.header`
   }
   .header__nav {
     color: ${blueDark};
+  }
+  & > svg {
+    width: 50px;
+    height: 50px;
   }
 `;

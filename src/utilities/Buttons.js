@@ -20,6 +20,8 @@ const Button = styled.button`
     border: 1px solid transparent;
     color: ${blueDark};
   }
+
+  }
 `;
 
 export const ButtonPrimary = Button.extend`
