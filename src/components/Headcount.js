@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 // import { orange } from "../utilities/colors";
 import { Section, ButtonPrimary, ButtonSecondary } from "../utilities";
+<<<<<<< HEAD
 import { background, blue, blueDark, orange, silver, white, blueLight, red } from "../utilities/colors";
 import HeadcountHistoryRecord from "../components/HeadcountHistoryRecord";
 
+=======
+import {
+  background,
+  blue,
+  blueDark,
+  orange,
+  silver,
+  white
+} from "../utilities/colors";
+>>>>>>> c2fa721439f5d10d7516596cd4ee25ce69c220e2
 
 export default class Headcount extends Component {
   constructor() {
@@ -11,6 +22,7 @@ export default class Headcount extends Component {
     // state values hardcoded temporarily while working on structure
     this.state = {
       currentHeadcount: 75,
+<<<<<<< HEAD
       submitIsDisabled: true,
       totalHeadcount: 100,
       updateDate: 'August 6, 2018',
@@ -39,13 +51,19 @@ export default class Headcount extends Component {
       currentHeadcount,
       submitIsDisabled: false
     })
+=======
+      totalHeadcount: 100
+    };
+>>>>>>> c2fa721439f5d10d7516596cd4ee25ce69c220e2
   }
-  
+
   render() {
     const sites = Object.values(this.props.sites);
-    const percentOccupied = (this.state.currentHeadcount / this.state.totalHeadcount) * 100;
+    const percentOccupied =
+      (this.state.currentHeadcount / this.state.totalHeadcount) * 100;
 
-    return <HeadcountSection>
+    return (
+      <HeadcountSection>
         <div className="section__wrapper">
           {/* <select className="headcount__options">
             {sites.map(site => (
@@ -60,12 +78,37 @@ export default class Headcount extends Component {
               Current Headcount
             </h3>
             <div className="headcount__meter">
+<<<<<<< HEAD
             <div className="headcount__meter__inner">
               <div className="headcount__meter__occupancy__current">{percentOccupied}%</div>
               <div className="headcount__meter__occupancy__percent-of-total">{this.state.currentHeadcount}/{this.state.totalHeadcount} occupied</div>
               </div>
             </div>
             <p className="headcount__date">Last updated: {this.state.updateDate} {this.state.updateTime}</p>
+=======
+              <div
+                className="headcount__meter__bar"
+                style={{ width: `${percentOccupied}%` }}
+              >
+                <span className="headcount__meter__bar__status">
+                  {this.state.currentHeadcount}/{this.state.totalHeadcount}
+                </span>
+              </div>
+            </div>
+            <p className="headcount__count">
+              <span className="headcount__count--current">
+                {this.state.currentHeadcount}
+              </span>/<span className="headcount__count--total">
+                {this.state.totalHeadcount}
+              </span>{" "}
+              spaces
+            </p>
+            <p className="headcount__date">July 30, 2018 3:30PM</p>
+            <p className="headcount__update__details">
+              Updated by: <span>[avatar icon]</span>
+              <span>John D.</span>
+            </p>
+>>>>>>> c2fa721439f5d10d7516596cd4ee25ce69c220e2
           </div>
           <fieldset className="headcount__general">
             <div className="headcount__general__controls">
@@ -78,13 +121,31 @@ export default class Headcount extends Component {
                 <button className="headcount__change__button headcount__decrement" onClick={this.headcountDecrement}>
                 -
                 </button>
+<<<<<<< HEAD
+=======
+                <label className="visually-hidden">Current Headcount</label>
+                <input
+                  type="text"
+                  id="headcount__change--current"
+                  className="headcount__change__input"
+                />
+>>>>>>> c2fa721439f5d10d7516596cd4ee25ce69c220e2
               </div>
               <div className="headcount__general__control headcount__divider">
                 /
               </div>
               <div className="headcount__general__control">
                 <label className="visually-hidden">Total Headcount</label>
+<<<<<<< HEAD
                 <input type="text" className="headcount__change__input" id="headcount__change--total" defaultValue={this.state.totalHeadcount} />
+=======
+                <input
+                  type="text"
+                  className="headcount__change__input"
+                  id="headcount__change--total"
+                  value={this.state.totalHeadcount}
+                />
+>>>>>>> c2fa721439f5d10d7516596cd4ee25ce69c220e2
               </div>
             </div>
             <ButtonPrimary disabled={this.state.submitIsDisabled ? true : false} className="headcount__change__submit">
@@ -93,6 +154,7 @@ export default class Headcount extends Component {
           </fieldset>
           <div className="headcount__history">
             <h3 className="headcount__history__heading">Recent History</h3>
+<<<<<<< HEAD
           <HeadcountHistoryRecord
             totalHeadcount={this.state.totalHeadcount}
             headcount="83"
@@ -111,10 +173,55 @@ export default class Headcount extends Component {
             recordDate="August 1, 2018"
             recordTime="12:00PM"
           />
+=======
+            <div className="headcount__history__record">
+              <div className="headcount__history__meter yellow">
+                <div
+                  className="headcount__history__meter__bar"
+                  style={{ width: `${percentOccupied}%` }}
+                >
+                  <span className="headcount__history__meter__bar__status">
+                    {this.state.currentHeadcount}/{this.state.totalHeadcount}
+                  </span>
+                </div>
+              </div>
+              <p className="headcount__history__record__date">July 30, 2018</p>
+              <p className="headcount__history__record__time">10:00AM</p>
+            </div>
+            <div className="headcount__history__record">
+              <div className="headcount__history__meter red">
+                <div
+                  className="headcount__history__meter__bar"
+                  style={{ width: `${percentOccupied}%` }}
+                >
+                  <span className="headcount__history__meter__bar__status">
+                    {this.state.currentHeadcount}/{this.state.totalHeadcount}
+                  </span>
+                </div>
+              </div>
+              <p className="headcount__history__record__date">July 30, 2018</p>
+              <p className="headcount__history__record__time">10:00AM</p>
+            </div>
+            <div className="headcount__history__record">
+              <div className="headcount__history__meter green">
+                <div
+                  className="headcount__history__meter__bar"
+                  style={{ width: `${percentOccupied}%` }}
+                >
+                  <span className="headcount__history__meter__bar__status">
+                    {this.state.currentHeadcount}/{this.state.totalHeadcount}
+                  </span>
+                </div>
+              </div>
+              <p className="headcount__history__record__date">July 30, 2018</p>
+              <p className="headcount__history__record__time">10:00AM</p>
+            </div>
+>>>>>>> c2fa721439f5d10d7516596cd4ee25ce69c220e2
           </div>
           <button className="headcount__history__view-more">View more</button>
         </div>
-      </HeadcountSection>;
+      </HeadcountSection>
+    );
   }
 }
 

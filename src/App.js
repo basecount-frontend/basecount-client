@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import axios from "axios";
 import Login from "./components/Login";
@@ -51,52 +51,54 @@ class App extends Component {
     const { appOrg, appUser } = this.state;
     return (
       <div className="App">
-        <Header />
-        <Subheader orgName={this.state.orgs[appOrg].name} />
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/" render={() => <Login />} />
-            <Route
-              exact
-              path="/app/headcount"
-              render={() => (
-                <Headcount
-                  user={this.state.users[appUser]}
-                  org={this.state.orgs[appOrg]}
-                  sites={this.state.sites}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/app/admin/sites"
-              render={() => (
-                <Sites
-                  user={this.state.users[appUser]}
-                  org={this.state.orgs[appOrg]}
-                  users={this.state.users}
-                  sites={this.state.sites}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/app/admin/users"
-              render={() => (
-                <Users
-                  user={this.state.users[appUser]}
-                  org={this.state.orgs[appOrg]}
-                  users={this.state.users}
-                  sites={this.state.sites}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/app/account"
-              render={() => <Account user={this.state.users[appUser]} />}
-            />
-          </Switch>
+          <Fragment>
+            <Header />
+            <Subheader orgName={this.state.orgs[appOrg].name} />
+            <Switch>
+              <Route exact path="/" render={() => <Login />} />
+              <Route
+                exact
+                path="/app/headcount"
+                render={() => (
+                  <Headcount
+                    user={this.state.users[appUser]}
+                    org={this.state.orgs[appOrg]}
+                    sites={this.state.sites}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/app/admin/sites"
+                render={() => (
+                  <Sites
+                    user={this.state.users[appUser]}
+                    org={this.state.orgs[appOrg]}
+                    users={this.state.users}
+                    sites={this.state.sites}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/app/admin/users"
+                render={() => (
+                  <Users
+                    user={this.state.users[appUser]}
+                    org={this.state.orgs[appOrg]}
+                    users={this.state.users}
+                    sites={this.state.sites}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/app/account"
+                render={() => <Account user={this.state.users[appUser]} />}
+              />
+            </Switch>
+          </Fragment>
         </BrowserRouter>
       </div>
     );
