@@ -81,10 +81,10 @@ class App extends Component {
                 )}
               />
               <Route
-                exact
                 path="/app/admin/users"
-                render={() => (
+                render={props => (
                   <Users
+                    {...props}
                     user={this.state.users[appUser]}
                     org={this.state.orgs[appOrg]}
                     users={this.state.users}
