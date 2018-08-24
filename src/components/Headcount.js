@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Moment from "react-moment";
 // import { orange } from "../utilities/colors";
 import { Section, ButtonPrimary, ButtonSecondary } from "../utilities";
 import HeadcountHistoryRecord from "./HeadcountHistoryRecord";
@@ -28,6 +29,7 @@ export default class Headcount extends Component {
     const percentOccupied =
       (this.state.currentHeadcount / this.state.totalHeadcount) * 100;
 
+    const updatedAt = new Date();
     return (
       <HeadcountSection>
         <div className="section__wrapper">
@@ -63,7 +65,10 @@ export default class Headcount extends Component {
               </span>{" "}
               spaces
             </p>
-            <p className="headcount__date">July 30, 2018 3:30PM</p>
+            <p className="headcount__date">
+              {/* TODO: Currently shows local time */}
+              <Moment format="LLL">{updatedAt}</Moment>{" "}
+            </p>
             <p className="headcount__update__details">
               Updated by: <span>[avatar icon]</span>
               <span>John D.</span>
@@ -75,9 +80,13 @@ export default class Headcount extends Component {
               <div className="headcount__general__control headcount__change">
                 <button
                   className="headcount__change__button headcount__increment"
-                  onClick={this.headcountIncrement}
+                  onClick={() => {
+                    this.setState({
+                      currentHeadcount: this.state.currentHeadcount - 1
+                    });
+                  }}
                 >
-                  +
+                  -
                 </button>
                 <input
                   type="text"
@@ -87,9 +96,13 @@ export default class Headcount extends Component {
                 />
                 <button
                   className="headcount__change__button headcount__decrement"
-                  onClick={this.headcountDecrement}
+                  onClick={() => {
+                    this.setState({
+                      currentHeadcount: this.state.currentHeadcount + 1
+                    });
+                  }}
                 >
-                  -
+                  +
                 </button>
                 <label className="visually-hidden">Current Headcount</label>
                 <input
