@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Moment from "react-moment";
 // import { orange } from "../utilities/colors";
 import { Section, ButtonPrimary, ButtonSecondary } from "../utilities";
-import HeadcountHistoryRecord from "./HeadcountHistoryRecord";
+
 import {
   background,
   blue,
@@ -13,16 +13,15 @@ import {
   silver,
   white
 } from "../utilities/colors";
+import HeadcountContainer from "./headcount/HeadcountContainer";
+import SitesSelector from "./headcount/SitesSelector";
 
 export default class Headcount extends Component {
-  constructor() {
-    super();
-    // state values hardcoded temporarily while working on structure
-    this.state = {
-      currentHeadcount: 75,
-      totalHeadcount: 100
-    };
-  }
+  // state values hardcoded temporarily while working on structure
+  state = {
+    currentHeadcount: 75,
+    totalHeadcount: 100
+  };
 
   render() {
     const sites = Object.values(this.props.sites);
@@ -33,14 +32,7 @@ export default class Headcount extends Component {
     return (
       <HeadcountSection>
         <div className="section__wrapper">
-          {/* <select className="headcount__options">
-            {sites.map(site => (
-              <option value={site.programName} key={site.fid}>
-                {" "}
-                {site.programName}
-              </option>
-            ))}
-          </select> */}
+          <SitesSelector sites={sites} />
           <div className="headcount__current">
             <h3 className="headcount__current__heading headcount__heading">
               Current Headcount
@@ -57,13 +49,9 @@ export default class Headcount extends Component {
             </div>
             <p className="headcount__count">
               <span className="headcount__count--current">
-                {this.state.currentHeadcount}
+                {this.state.totalHeadcount - this.state.currentHeadcount} beds
+                left
               </span>
-              /
-              <span className="headcount__count--total">
-                {this.state.totalHeadcount}
-              </span>{" "}
-              spaces
             </p>
             <p className="headcount__date">
               {/* TODO: Currently shows local time */}
@@ -92,6 +80,7 @@ export default class Headcount extends Component {
                   type="text"
                   id="headcount__change--current"
                   className="headcount__change__input"
+                  readOnly
                   value={this.state.currentHeadcount}
                 />
                 <button
@@ -105,11 +94,6 @@ export default class Headcount extends Component {
                   +
                 </button>
                 <label className="visually-hidden">Current Headcount</label>
-                <input
-                  type="text"
-                  id="headcount__change--current"
-                  className="headcount__change__input"
-                />
               </div>
               <div className="headcount__general__control headcount__divider">
                 /
@@ -132,28 +116,7 @@ export default class Headcount extends Component {
               Add new headcount
             </ButtonPrimary>
           </fieldset>
-          <div className="headcount__history">
-            <h3 className="headcount__history__heading">Recent History</h3>
-
-            <HeadcountHistoryRecord
-              totalHeadcount={this.state.totalHeadcount}
-              headcount="83"
-              recordDate="July 30, 2018"
-              recordTime="9:00PM"
-            />
-            <HeadcountHistoryRecord
-              totalHeadcount={this.state.totalHeadcount}
-              headcount="96"
-              recordDate="July 31, 2018"
-              recordTime="10:00PM"
-            />
-            <HeadcountHistoryRecord
-              totalHeadcount={this.state.totalHeadcount}
-              headcount="100"
-              recordDate="August 1, 2018"
-              recordTime="12:00PM"
-            />
-          </div>
+          <HeadcountContainer totalHeadcount={this.state.totalHeadcount} />
           <button className="headcount__history__view-more">View more</button>
         </div>
       </HeadcountSection>

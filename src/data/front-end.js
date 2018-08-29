@@ -68,6 +68,7 @@ module.exports = {
         fid: "MET1171",
         id: 1,
         capacity: 40,
+        occupancy: 34,
         // TODO: need to add headcount, room info.
         headcounts: {
           12: {
@@ -90,7 +91,8 @@ module.exports = {
         longitude: -79.298255,
         fid: "MET5172",
         id: 2,
-        capacity: 83
+        capacity: 83,
+        occupancy: 25
       }
     },
     orgs: {
