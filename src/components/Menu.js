@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import {
+  background,
+  blue,
+  blueDark,
+  red,
+  blueLight,
+  orange,
+  silver,
+  white
+} from "../utilities/colors";
 
 export default class Menu extends Component {
   logoutClick = () => {
@@ -35,10 +45,15 @@ export default class Menu extends Component {
 
 const MenuDrop = styled.div`
   ul {
-    padding: 0;
+    padding-top: 80px;
+    padding-right: 30px;
     & li {
       list-style: none;
+      text-align: right;
       & a {
+        color: ${white};
+        line-height: 200%;
+        font-size: 1.5em;
         text-decoration: none !important;
         text-transform: uppercase;
       }
