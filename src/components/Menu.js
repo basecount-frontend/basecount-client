@@ -11,17 +11,11 @@ import {
   silver,
   white
 } from "../utilities/colors";
-import Header from "./Header";
 
 export default class Menu extends Component {
   logoutClick = () => {
     console.log("logout user");
   };
-  // renderDropdown = () => {
-  //   var current_dropDown_state = Header.state.dropDownOpen;
-  //   Header.setState({dropDownOpen : !current_dropDown_state});
-  // }
-
   render(props) {
     return (
       <MenuDrop>
