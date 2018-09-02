@@ -20,7 +20,7 @@ export default class Header extends Component {
                 <Icon name="logo" style={{height: "50px", width: "50px"}}/>
                 <DropButton onClick={this.renderDropdown}>DROP</DropButton>
                 <DropDown open={this.state.dropDownOpen}>
-                    <Menu/>
+                <Menu close={this.renderDropdown}/>
                 </DropDown>
             </MainHeader>
         );

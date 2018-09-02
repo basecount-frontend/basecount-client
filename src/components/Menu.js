@@ -11,28 +11,34 @@ import {
   silver,
   white
 } from "../utilities/colors";
+import Header from "./Header";
 
 export default class Menu extends Component {
   logoutClick = () => {
     console.log("logout user");
   };
-  render() {
+  // renderDropdown = () => {
+  //   var current_dropDown_state = Header.state.dropDownOpen;
+  //   Header.setState({dropDownOpen : !current_dropDown_state});
+  // }
+
+  render(props) {
     return (
       <MenuDrop>
         <ul>
-          <li>
+          <li onClick={this.props.close}>
             <Link to="/app/headcount">Headcount</Link>
           </li>
-          <li>
-            <Link to="/app/admin/users">User</Link>
+          <li onClick={this.props.close}>
+          <Link to="/app/admin/users">User</Link>
           </li>
-          <li>
-            <Link to="/app/admin/sites">Sites</Link>
+          <li onClick={this.props.close}>
+        <Link to="/app/admin/sites" >Sites</Link>
           </li>
-          <li>
+          <li onClick={this.props.close}>
             <Link to="/app/account">Your settings</Link>
           </li>
-          <li>
+          <li onClick={this.props.close}> 
             <a href="#" onClick={this.logoutClick}>
               Logout
             </a>
