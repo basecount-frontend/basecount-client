@@ -11,7 +11,6 @@ export default class Header extends Component {
     //on click change dropDownOpen? true : false
     renderDropdown = () => {
         this.setState({dropDownOpen: !this.state.dropDownOpen}); //
-        console.log(this.state.dropDownOpen);
     }
 
     render() {
@@ -28,6 +27,8 @@ export default class Header extends Component {
 }
 
 const DropButton = styled.button`
+  text-align: center;
+  align-content: center;
   z-index: 1;
   border-radius: 2px;
   transition: background 0.25s;
